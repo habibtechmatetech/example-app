@@ -7,7 +7,10 @@ node {
     stage('install') {
         // Run `composer update` as a shell script
         sh "composer install"
-        sh "php artsian key:generate"
+   
+    }
+    stage('init') {
+        sh 'php artisan key:generate'
     }
     stage("phpunit") {
         // Run PHPUnit
