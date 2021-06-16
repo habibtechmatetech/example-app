@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-node {
+node('master') {
     stage('Download') {
         // Checkout the master branch of the Laravel framework repository
         git branch: 'master', url: 'https://github.com/habibtechmatetech/example-app.git'
@@ -7,11 +7,8 @@ node {
     stage('install') {
         // Run `composer update` as a shell script
         sh "composer install"
-   
-    }
-    stage('init') {
-          sh '.env'
-       // sh './php artisan key:generate'
+        sh "cp .env.example .env"
+        sh "php artisan key:generate"
     }
     stage("phpunit") {
         // Run PHPUnit
