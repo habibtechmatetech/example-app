@@ -10,7 +10,7 @@ node {
    
     }
     stage('init') {
-      
+          sh '.env'
        // sh './php artisan key:generate'
     }
     stage("phpunit") {
