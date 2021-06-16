@@ -7,7 +7,7 @@ node {
     stage('install') {
         // Run `composer update` as a shell script
         sh "composer install"
-        //sh "php artsian cache:clear"
+        sh "php artsian key:generate"
     }
     stage("phpunit") {
         // Run PHPUnit
