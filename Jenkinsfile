@@ -5,10 +5,15 @@ node {
     }
     stage("composer_install") {
         // Run `composer update` as a shell script
-       // sh 'composer install'
+        sh "composer install"
+        sh "php artsian key:generate"
     }
     stage("phpunit") {
         // Run PHPUnit
-        sh 'vendor/bin/phpunit'
+        sh "./vendor/bin/phpunit"
+    }
+   stage('deploy'){
+       sh "echo 'We ARE DEPLOYING'"
+
     }
 }
