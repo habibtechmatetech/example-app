@@ -14,7 +14,7 @@ node('master') {
         // Run PHPUnit
         sh "./vendor/bin/phpunit"
     }
-   stage('deploy'){
+   stage('deploys'){
        sh "echo 'We ARE DEPLOYING'"
 
     }
